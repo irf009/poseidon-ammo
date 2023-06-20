@@ -27,8 +27,10 @@ window.addEventListener(`scroll`, function () {
 	}
 });
 
-//section animation
-const sectionTitle = document.querySelector(`.categories-section-title`);
+//categories section animation
+const categoriesSectionTitle = document.querySelector(
+	`.categories-section-title`
+);
 const UnderLine = document.querySelector(`.categories-underline`);
 const slug = document.querySelector(`.pcb-slug-container`);
 const pellet = document.querySelector(`.airgun-pellet-container`);
@@ -36,8 +38,8 @@ const fcp = document.querySelector(`.fcp-container`);
 const categoriesBtn = document.querySelector(`.categories-btn-container`);
 
 window.addEventListener(`scroll`, function () {
-	if (window.pageYOffset > 200) {
-		sectionTitle.style.animation = `opacity1 3s 1 ease-out forwards`;
+	if (window.pageYOffset > 300) {
+		categoriesSectionTitle.style.animation = `opacity1 3s 1 ease-out forwards`;
 		UnderLine.style.animation = `opacity1 3s 1 ease-out forwards`;
 		slug.style.animation = `slideToRight 2s 1 ease-out forwards`;
 		pellet.style.animation = `slideToTop 2s 1 ease-out forwards`;
@@ -59,5 +61,39 @@ As a company, we focus on providing the best service to our customers and ensuri
 	} else {
 		aboutUsReadMore.innerHTML = `Read More`;
 		aboutUsText.innerHTML = `As a company established in 2022 under the name of Poseidonammo, we operate in the PCP bullet industry. We provide production in PCB Slug, Airgun Pellet and Full Copper Platted(FCP) Bullet categories. Poseidon ammo focuses on the production of high quality and high performance bullets. PCB Slug is a high precision bullets that provides high shoting capability. Airgun bullet is an ideal option for activities such as hunting and target shooting. In the FCP category, we produce bullets with higher velocities and longer ranges. . .`;
+	}
+});
+//aboutUs section animation
+const aboutUsSectionTitle = document.querySelector(`.about-section-title`);
+const img = document.querySelector(`.img-container`);
+const aboutUsInformation = document.querySelector(`.about-us-information`);
+const aboutUsBtn = document.querySelector(`.btn-container`);
+
+window.addEventListener(`scroll`, function () {
+	if (window.pageYOffset > 900) {
+		aboutUsSectionTitle.style.animation = `opacity1 3s 1 ease-out forwards`;
+		img.style.animation = `slideToRight 2s 1 ease-out forwards`;
+		aboutUsInformation.style.animation = `slideToLeft 2s 1 ease-out forwards`;
+		aboutUsBtn.style.animation = `slideToTop 2s 1 ease-out forwards`;
+	}
+});
+//contactUs section animation
+const contactUsForm = document.querySelector(`.contact-us-form`);
+const contactUsInformation = document.querySelector(`.information-sections`);
+
+window.addEventListener(`scroll`, function () {
+	if (window.pageYOffset > 1400) {
+		contactUsForm.style.animation = `slideToLeft 2s 1 ease-out forwards`;
+		contactUsInformation.style.animation = `slideToRight 2s 1 ease-out forwards`;
+	}
+});
+//show back to top
+const backToTop = document.querySelector(`.back-to-top-container`);
+
+window.addEventListener(`scroll`, function () {
+	if (window.pageYOffset > 600) {
+		backToTop.classList.add(`show-back-to-top`);
+	} else {
+		backToTop.classList.remove(`show-back-to-top`);
 	}
 });

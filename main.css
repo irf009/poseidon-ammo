@@ -1,5 +1,6 @@
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/google-sans");
 /* global styles */
 * {
 	margin: 0;
@@ -7,7 +8,7 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: "Inter";
+	font-family: "Product Sans", sans-serif;
 }
 :root {
 	--primary-color: #bea925;
@@ -28,7 +29,7 @@ nav {
 	padding-right: 2rem;
 	padding-bottom: 0.25rem;
 	padding-top: 0.25rem;
-	background: var(--black);
+	background: #222;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -63,6 +64,7 @@ nav {
 li {
 	padding: 1rem 2rem;
 	transition: all 0.3s linear;
+	font-size: 1.2rem;
 }
 li:hover {
 	background: var(--primary-color);
@@ -136,6 +138,42 @@ a:hover li {
 		color: var(--primary-color);
 	}
 }
+/* back to top */
+.back-to-top {
+	z-index: 100;
+	cursor: pointer;
+	color: #bea925;
+	font-size: 1.5rem;
+	transition: all 0.3s linear;
+}
+.back-to-top-container {
+	position: fixed;
+	bottom: 5%;
+	right: 5%;
+	z-index: 100;
+	width: 45px;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #00000033;
+	border-radius: 100%;
+	cursor: pointer;
+	transition: all 0.3s linear;
+	visibility: hidden;
+	opacity: 0;
+}
+.back-to-top-container:hover {
+	background: #bea925;
+	color: #fff;
+}
+.back-to-top-container:hover .back-to-top {
+	color: #fff;
+}
+.show-back-to-top {
+	visibility: visible;
+	opacity: 1;
+}
 /* home section */
 .home {
 	height: 100vh;
@@ -169,7 +207,7 @@ a:hover li {
 	border: none;
 	background: transparent;
 	color: #fff;
-	font-family: "Inter";
+	font-family: "Product Sans", sans-serif;
 	margin-top: 1rem;
 	font-weight: 400;
 	cursor: pointer;
@@ -218,7 +256,7 @@ a:hover li {
 	padding-top: 1rem;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	flex-wrap: wrap;
 }
 .category {
@@ -272,7 +310,7 @@ a:hover li {
 .categories-btn {
 	border: none;
 	background: transparent;
-	font-family: "Inter";
+	font-family: "Product Sans", sans-serif;
 	color: #bea925;
 	font-size: 1rem;
 	letter-spacing: 0.2rem;
@@ -373,6 +411,8 @@ a:hover li {
 	color: #bea925;
 	margin-top: 3rem;
 	margin-bottom: 3rem;
+	opacity: 0;
+	visibility: hidden;
 }
 .about-us-title {
 	color: #bea925;
@@ -385,6 +425,8 @@ a:hover li {
 .img-container {
 	width: 100%;
 	margin-bottom: 2rem;
+	opacity: 0;
+	visibility: hidden;
 }
 .about-us-img {
 	object-fit: cover;
@@ -394,7 +436,7 @@ a:hover li {
 .about-us-read-more {
 	border: none;
 	background: transparent;
-	font-family: "Inter";
+	font-family: "Product Sans", sans-serif;
 	color: #bea925;
 	font-size: 1rem;
 	letter-spacing: 0.2rem;
@@ -416,6 +458,12 @@ a:hover li {
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+}
+.about-us-information {
+	opacity: 0;
+	visibility: hidden;
 }
 @media screen and (min-width: 820px) {
 	.section-center {
@@ -451,6 +499,126 @@ a:hover li {
 		top: -6%;
 		left: -5%;
 		z-index: -1;
+	}
+}
+/* contact */
+.contact {
+	padding: 3rem 2rem;
+}
+.contact-us-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: #f1f5f8;
+	margin-top: 1rem;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+	max-width: 560px;
+	opacity: 0;
+	visibility: hidden;
+}
+.information-sections {
+	opacity: 0;
+	visibility: hidden;
+}
+.contact-us-title h1 {
+	color: #bea925;
+	margin-bottom: 1.5rem;
+	margin-top: 1.5rem;
+	font-size: 1.7rem;
+	letter-spacing: 0.1rem;
+}
+.form-icon {
+	color: #bea925;
+	font-size: 1.2rem;
+}
+.contact-us-sections-title-p {
+	color: #c7b857;
+	letter-spacing: 0.3rem;
+}
+.contact-us-sections-title {
+	display: flex;
+	gap: 0.5rem;
+}
+.contact-us-sections-information p {
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	max-width: 255px;
+	color: #444;
+}
+.adress-information {
+	margin-bottom: 1.5rem;
+	margin-top: 0.5rem;
+}
+.email-information {
+	margin-bottom: 1.5rem;
+	margin-top: 0.5rem;
+}
+.telephone-information {
+	margin-top: 0.5rem;
+	margin-bottom: 2rem;
+}
+.inputs {
+	border: none;
+	margin-bottom: 1rem;
+	padding: 0.75rem 1rem;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 560px;
+}
+.inputs::placeholder {
+	color: #767676;
+	letter-spacing: 0.1rem;
+	font-size: 0.7rem;
+	font-family: "Product Sans", sans-serif;
+}
+.contact-submit {
+	border: none;
+	color: #fff;
+	letter-spacing: 0.2rem;
+	font-weight: 600;
+	background: #bea925;
+	width: 100%;
+	cursor: pointer;
+	font-family: "Product Sans", sans-serif;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	padding: 1rem;
+	margin-top: 1rem;
+	transition: all 0.5s linear;
+}
+.contact-submit:hover {
+	background: #c7b857;
+	color: #222;
+}
+@media screen and (min-width: 830px) {
+	.contact {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10rem;
+		padding: 3rem 5rem;
+	}
+	.contact-us-form {
+		width: 100%;
+	}
+	.contact-us-sections-title {
+		font-size: 1.3rem;
+		font-weight: 400;
+		display: flex;
+		align-items: center;
+	}
+	.form-icon {
+		font-size: 1.3rem;
+	}
+	.contact-us-sections-information p {
+		font-size: 1.3rem;
+		font-weight: 500;
+	}
+	.inputs::placeholder {
+		font-size: 0.9rem;
 	}
 }
 /* smooth scroll */
