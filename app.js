@@ -97,3 +97,32 @@ window.addEventListener(`scroll`, function () {
 		backToTop.classList.remove(`show-back-to-top`);
 	}
 });
+//faq
+const questions = document.querySelectorAll(`.question-and-answer`);
+let currentAnswer = false;
+
+questions.forEach(function (question) {
+	const questionBtn = question.querySelector(`.question`);
+	questionBtn.addEventListener(`click`, function (e) {
+		const answerText = question.querySelector(`.answer`);
+		if (currentAnswer == false) {
+			answerText.classList.add(`show-answer`);
+			currentAnswer = answerText;
+		} else if (currentAnswer == answerText) {
+			answerText.classList.toggle(`show-answer`);
+		} else {
+			currentAnswer.classList.remove(`show-answer`);
+			answerText.classList.toggle(`show-answer`);
+			currentAnswer = answerText;
+		}
+		// console.log(currentAnswer);
+	});
+});
+//faq animation
+const faq = document.querySelector(`.faq`);
+
+window.addEventListener(`scroll`, function () {
+	if (window.pageYOffset > 2000) {
+		faq.style.animation = `opacity1 3s 1 ease-out forwards`;
+	}
+});
