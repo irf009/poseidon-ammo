@@ -100,20 +100,28 @@ window.addEventListener(`scroll`, function () {
 //faq
 const questions = document.querySelectorAll(`.question-and-answer`);
 let currentAnswer = false;
+let currentIcon = false;
 
 questions.forEach(function (question) {
 	const questionBtn = question.querySelector(`.question`);
 	questionBtn.addEventListener(`click`, function (e) {
 		const answerText = question.querySelector(`.answer`);
-		if (currentAnswer == false) {
+		const questionIcon = question.querySelector(`.question-btn`);
+		if ((currentAnswer == false) & (currentIcon == false)) {
 			answerText.classList.add(`show-answer`);
+			questionIcon.classList.add(`rotate`);
 			currentAnswer = answerText;
+			currentIcon = questionIcon;
 		} else if (currentAnswer == answerText) {
 			answerText.classList.toggle(`show-answer`);
+			questionIcon.classList.toggle(`rotate`);
 		} else {
 			currentAnswer.classList.remove(`show-answer`);
+			currentIcon.classList.remove(`rotate`);
 			answerText.classList.toggle(`show-answer`);
+			questionIcon.classList.toggle(`rotate`);
 			currentAnswer = answerText;
+			currentIcon = questionIcon;
 		}
 		// console.log(currentAnswer);
 	});
@@ -125,4 +133,23 @@ window.addEventListener(`scroll`, function () {
 	if (window.pageYOffset > 2000) {
 		faq.style.animation = `opacity1 3s 1 ease-out forwards`;
 	}
+});
+//date
+const date = document.querySelector(`.date`);
+date.innerHTML = new Date().getFullYear();
+//smooth scroll fixed
+const scrollLinks = document.querySelectorAll(`.scroll-link`);
+
+scrollLinks.forEach(function (scrollLink) {
+	scrollLink.addEventListener(`click`, function (e) {
+		links.style.height = 0;
+		e.preventDefault();
+		const id = scrollLink.getAttribute(`href`).slice(1);
+		const element = document.querySelector(`#${id}`);
+		let position = element.offsetTop - navHeight;
+		window.scrollTo({
+			left: 0,
+			top: position,
+		});
+	});
 });
